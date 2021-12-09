@@ -18,9 +18,6 @@ sudo yum install cockpit
 # Enable and Start Cockpit
 sudo systemctl enable --now cockpit.socket
 
-# Needed for diagnostic reports to work
-sudo yum install sos
-
 # Performance Reporting
 sudo yum install cockpit-pcp
 
