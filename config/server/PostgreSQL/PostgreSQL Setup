@@ -18,6 +18,7 @@ sudo postgresql-setup initdb
 # Edit Postgresql to allow external access
 sudo vim /var/lib/pgsql/data/postgresql.conf
 # Set listen_addresses = '*'
+# Set password_encryption = 'scram-sha-256'
 
 # Edit Host Based Authentication File
 sudo vim /var/lib/pgsql/data/pg_hba.conf
