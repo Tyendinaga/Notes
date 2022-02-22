@@ -1,0 +1,15 @@
+# Instal Requisite Repositories
+sudo dnf install elrepo-release 
+sudo dnf install epel-release
+
+# install WireGuard
+sudo dnf install kmod-wireguard 
+sudo dnf install wireguard-tools
+
+wg genkey | sudo tee /etc/wireguard/private.key
+
+sudo chmod go= /etc/wireguard/private.key
+
+sudo cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
+
+# TODO: Finish
