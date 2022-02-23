@@ -8,9 +8,23 @@ sudo systemctl enable --now nfs-server
 # Make a Directory to hold the NFS data
 sudo mkdir -p /media/nfs
 
+# Set nobody as owner
+sudo chown nobody:nobody /media/nfs
+
+# This might be a bit too open
+sudo chmod 777 /media/nfs
+
 # Edit the Exports File
 # This seems to be for NFS exclusively
 sudo nano /etc/exports
 
 # Load Exports Config
 sudo exportfs -arv
+
+# Firewall
+
+sudo firewall-cmd --permanent --add-service=nfs
+sudo firewall-cmd --permanent --add-service=rpc-bind
+sudo firewall-cmd --permanent --add-service=mountd
+
+sudo firewall-cmd --reload
