@@ -1,0 +1,16 @@
+
+# Install Reqs
+sudo dnf install nfs-utils
+
+# Startup The Server
+sudo systemctl enable --now nfs-server
+
+# Make a Directory to hold the NFS data
+sudo mkdir -p /media/nfs
+
+# Edit the Exports File
+# This seems to be for NFS exclusively
+sudo nano /etc/exports
+
+# Load Exports Config
+sudo exportfs -arv
