@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+    ghost:
+        image: owncast:latest
+        container_name: owncast
+        restart: unless-stopped
+        ports:
+            - "8080:8080"
+            - "1935:1935"
+        volumes:
+            - type: bind
+              source: /media/nfs/podman/owncast/app
+              target: /app

@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+    ghost:
+        image: ghost:latest
+        container_name: ghost
+        restart: unless-stopped
+        ports:
+            - "8080:2368"
+        volumes:
+            - type: bind
+            source: /media/nfs/podman/ghost/content
+            target: /var/lib/ghost/content
+        environment:
+            - "NODE_ENV=production"
+            
